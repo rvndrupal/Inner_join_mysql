@@ -1,0 +1,3 @@
+select * from tbl_comunicado 
+inner JOIN tbl_areas
+on tbl_comunicado.idArea= tbl_areas.id
