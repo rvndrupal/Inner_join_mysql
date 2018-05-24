@@ -22,6 +22,39 @@ SELECT AREA.nombre, CCOM.nombre, COUNT(AREA.nombre)
  INNER JOIN tbl_areas area ON area.id = com.idArea 
  GROUP BY AREA.nombre, CCOM.nombre
 
+SELECT area.nombre, ccom.nombre, COUNT(AREA.nombre)
+ FROM tbl_comunicado com INNER JOIN cat_comunicados ccom ON ccom.id = com.idTipoComunicado
+ INNER JOIN tbl_areas area ON area.id = com.idArea 
+ GROUP BY area.nombre, ccom.nombre
+
+
  //ESTA ES LA CONSULTA QUE TIENE LO REQUERIDO EN LA TABLA DE RARI
 
 
+ //NUEVA TABLA
+
+select * from tbl_comunicado comun
+INNER JOIN tbl_areas areas ON
+comun.idArea= areas.id
+
+
+SELECT CCOM.nombre, PROD.nombre, COUNT(CCOM.nombre)
+ FROM tbl_comunicado com 
+ INNER JOIN cat_comunicados ccom 
+ 	ON ccom.id = com.idTipoComunicado
+ INNER JOIN det_comunicado_productos ASO
+ 	ON ASO.idComunicado = COM.id
+ INNER JOIN cat_productos prod
+ 	ON PROD.id = ASO.idProducto
+ GROUP BY CCOM.nombre, PROD.nombre
+
+ SELECT PROD.nombre, CCOM.nombre, COUNT(CCOM.nombre)
+ FROM tbl_comunicado com 
+ INNER JOIN cat_comunicados ccom 
+ 	ON ccom.id = com.idTipoComunicado
+ INNER JOIN det_comunicado_productos ASO
+ 	ON ASO.idComunicado = COM.id
+ INNER JOIN cat_productos prod
+ 	ON PROD.id = ASO.idProducto
+ GROUP BY CCOM.nombre, PROD.nombre
+ ORDER BY 1, 2
