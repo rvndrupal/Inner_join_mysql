@@ -1,3 +1,27 @@
 select * from tbl_comunicado 
 inner JOIN tbl_areas
 on tbl_comunicado.idArea= tbl_areas.id
+
+
+select tbl_comunicado.titulo , tbl_areas.nombre from tbl_comunicado
+INNER JOIN tbl_areas 
+on tbl_comunicado.idArea=tbl_areas.id ORDER BY tbl_areas.nombre ASC
+
+
+select tbl_comunicado.titulo , tbl_areas.nombre , COUNT(tbl_areas.nombre) as Total from tbl_comunicado
+INNER JOIN tbl_areas 
+on tbl_comunicado.idArea=tbl_areas.id ORDER BY tbl_areas.nombre ASC
+
+//resultado 1582
+
+SELECT * FROM tbl_comunicado com INNER JOIN cat_comunicados ccom ON ccom.id = com.idTipoComunicado INNER JOIN tbl_areas area ON area.id = com.idArea
+
+
+SELECT AREA.nombre, CCOM.nombre, COUNT(AREA.nombre)
+ FROM tbl_comunicado com INNER JOIN cat_comunicados ccom ON ccom.id = com.idTipoComunicado
+ INNER JOIN tbl_areas area ON area.id = com.idArea 
+ GROUP BY AREA.nombre, CCOM.nombre
+
+ //ESTA ES LA CONSULTA QUE TRAI LO REQUERIDO EN LA TABLA
+
+
